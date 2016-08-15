@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.5.50, for debian-linux-gnu (x86_64)
 --
--- Host: localhost    Database: test
+-- Host: localhost    Database: security_lesson
 -- ------------------------------------------------------
 -- Server version	5.5.50-0ubuntu0.14.04.1
 
@@ -14,6 +14,12 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+DROP USER IF EXISTS 'lesson'@'localhost';
+DROP DATABASE IF EXISTS `security_lesson`;
+CREATE DATABASE `security_lesson`
+CREATE USER 'lesson'@'localhost' IDENTIFIED BY '123lesson43';
+GRANT SELECT,INSERT ON `security_lesson`.* TO 'lesson'@'localhost';
 
 --
 -- Table structure for table `comments`
@@ -31,15 +37,6 @@ CREATE TABLE `comments` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `comments`
---
-
-LOCK TABLES `comments` WRITE;
-/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,2,1,'sdfsf'),(2,2,1,'sdfsf'),(3,2,1,'sdfsf'),(4,2,1,'sdfsf'),(5,2,1,'sdfsf');
-/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `posts`
@@ -58,15 +55,6 @@ CREATE TABLE `posts` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `posts`
---
-
-LOCK TABLES `posts` WRITE;
-/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (1,'121','fsdfs','sdfdsfsd','2016-08-03 02:36:54'),(2,'121','fsdfs','sdfdsfsd','2016-08-03 02:37:22'),(3,'121','fsdfs','sdfdsfsd','2016-08-03 02:38:04'),(4,'dsfaddf','asdfaf','asdfadsf','2016-08-03 03:04:57'),(5,'dsfaddf','asdfaf','asdfadsf','2016-08-03 03:11:12');
-/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `users`
